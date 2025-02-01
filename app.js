@@ -12,6 +12,7 @@ const agregarAmigo = () => {
     if (nuevoAmigo) {
         amigosArr.push(nuevoAmigo)
         limpiarInput()
+        dezplegarLista()
         console.log(amigosArr)
     }
 }
@@ -36,4 +37,13 @@ const validarNombre = amigo => {
 
 const limpiarInput = () => {
     document.getElementById('amigo').value = ''
+}
+
+const dezplegarLista = () => {
+    let listaAmigos = document.getElementById('listaAmigos')
+
+    listaAmigos.innerHTML = ''
+    amigosArr.forEach(amigo => {
+        listaAmigos.innerHTML += `<li>${amigo}</li>`
+    })
 }
