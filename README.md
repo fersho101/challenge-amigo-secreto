@@ -11,4 +11,4 @@
 
  - validarNombre([nom]), solo permite caracteres validos, si es posible, elimina caracteres invalidos, un solo espacio entre palabras, no permite cadena vacia.    
 
--
+- dezplegarLista(), dezpliega y muestra la lista de amigos añadidos 
