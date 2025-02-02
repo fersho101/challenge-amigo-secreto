@@ -1,16 +1,20 @@
-# challenge-amigo-secreto
- Challenge amigo secreto - Implemetacion del popular juego amigo secreto con javascript basico, html y css.
 
+# 🚀 Challenge amigo secreto
 
+## ✏️ Descripcion
 
- Funciones:
+Implemetación del popular juego "Amigo Secreto", con javascript basico, html y css.
 
- - agregarAmigo(), Añade amigos a la lista de amigos.
+## ⚙️ Funciones
 
- - limpiarInput() , limpia entrada del input.
+- agregarAmigo(), Añade amigos a la lista de amigos.
 
- - validarNombre([nom]), solo permite caracteres validos, si es posible, elimina caracteres invalidos, un solo espacio entre palabras, no permite cadena vacia.    
+- limpiarInput() , limpia entrada del input.
+
+- validarNombre([nom]), solo permite caracteres validos, si es posible, elimina caracteres invalidos, un solo espacio entre palabras, no permite cadena vacia.
 
 - dezplegarLista(), dezpliega y muestra la lista de amigos añadidos
 
 - eliminaNombresDuplicados([nom]), no permite ingresar nombres duplicados o ya incluidos.
+
+## 🔗 Enlace
