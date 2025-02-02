@@ -16,7 +16,7 @@ const agregarAmigo = () => {
     if (nuevoAmigo) {
         amigosArr.push(nuevoAmigo)
         limpiarInput()
-        dezplegarLista()
+        desplegarLista()
         console.log(amigosArr)
     }
 }
@@ -69,7 +69,7 @@ const limpiarInput = () => {
 }
 
 //Desplega lista de amigos capturados
-const dezplegarLista = () => {
+const desplegarLista = () => {
     listaAmigos = document.getElementById('listaAmigos')
 
     listaAmigos.innerHTML = ''
