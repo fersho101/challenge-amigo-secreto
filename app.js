@@ -17,7 +17,6 @@ const agregarAmigo = () => {
         amigosArr.push(nuevoAmigo)
         limpiarInput()
         desplegarLista()
-        console.log(amigosArr)
     }
 }
 
