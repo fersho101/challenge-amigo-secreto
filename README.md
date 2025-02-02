@@ -3,7 +3,7 @@
 
 ## ✏️ Descripcion
 
-Implemetación del popular juego "Amigo Secreto", con javascript basico, html y css.
+- Implemetación del popular juego "Amigo Secreto", con javascript basico, html y css.
 
 ## 📏 Forma de jugar
 
