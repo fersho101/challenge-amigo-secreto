@@ -18,6 +18,7 @@ const agregarAmigo = () => {
         limpiarInput()
         desplegarLista()
     }
+    return
 }
 
 // Valida nombres validos
@@ -38,7 +39,7 @@ const validarNombre = amigo => {
         if (regex.test(amigo)) {
             return amigo
         }
-        return null
+        return
     }
 }
 
@@ -97,6 +98,8 @@ const sortearAmigo = () => {
 
     document.getElementById('btn-sortear').style.display = 'none'
     document.getElementById('btn-reiniciar').style.display = 'flex'
+    document.getElementById('button-add').style.display = 'none'
+    document.getElementById('amigo').style.borderRadius ='25px 25px' 
     return
 }
 
@@ -105,6 +108,10 @@ const reiniciarJuego = () => {
     document.getElementById('btn-reiniciar').style.display = 'none'
     document.getElementById('btn-sortear').style.display = 'flex'
     document.getElementById('resultado').innerHTML = ''
+    document.getElementById('button-add').style.display = 'flex'
+    document.getElementById('amigo').style.borderRadius ='25px 0 0 25px' 
+
+
 
     document
         .getElementById('btn-reiniciar')
