@@ -181,4 +181,63 @@ ul {
     background-color: var(--color-button-reset-hover);
 }
 
+/* Responsividad */
 
+@media (max-width: 768px) {
+    .header-banner {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-banner {
+        flex-direction: column;
+    }
+
+    .header-banner h1 {
+        font-size: 24px;
+    }
+
+    .header-banner img {
+        max-width: 100%;
+    }
+
+    .input-section h2 {
+        font-size: 20px;
+    }
+
+    .input-section .input-wrapper {
+        max-width: 100%;
+        flex-direction: column;
+
+        .input-name {
+            font-size: 12px;
+            border-radius: 25px 25px;
+        }
+
+        .button-add {
+            border-radius: 25px 25px;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+    }
+
+    .name-list {
+        font-size: 12px;
+    }
+
+    .button-container {
+        width: 100%;
+
+        button {
+            font-size: 12px;
+            justify-content: center;
+
+            img {
+                display: none;
+            }
+        }
+
+    }
+
+}
