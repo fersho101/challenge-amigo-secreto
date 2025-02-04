@@ -8,15 +8,13 @@ let listaAmigos = ''
 const agregarAmigo = () => {
     let nuevoAmigo = document.getElementById('amigo').value
     nuevoAmigo = validarNombre(nuevoAmigo)
-    nuevoAmigo = eliminaNombresDuplicados(nuevoAmigo, amigosArr)
-
     let resultado = document.getElementById('resultado')
     resultado.innerHTML = ''
 
-    if (nuevoAmigo) {
+    if(nuevoAmigo) {
         amigosArr.push(nuevoAmigo)
-        limpiarInput()
         desplegarLista()
+        limpiarInput()
     }
     return
 }
@@ -28,13 +26,14 @@ const validarNombre = amigo => {
 
     amigo = amigo.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '') // elimina caracteres invalidos.
     amigo = amigo.replace(/\s+/g, ' ') // Elimina espacios mayores a uno entre palabras.
+    amigo = eliminarAcentos(amigo)
 
     if (amigo.length < 2) {
         alert(
             'El nombre debe tener al menos 2 caracteres válidos. Solo se permiten letras, con o sin acento. Caracteres inválidos se eliminarán del nombre.'
         )
         limpiarInput()
-        return null
+        
     } else {
         if (regex.test(amigo)) {
             return amigo
@@ -43,24 +42,9 @@ const validarNombre = amigo => {
     }
 }
 
-//Valida nombres duplicados
-const eliminaNombresDuplicados = (nom, arr) => {
-    nomNormalizado = normalizarCadena(nom)
-    if (arr.some(elem => normalizarCadena(elem) === nomNormalizado)) {
-        alert('Nombre de amigo ya incluido, agregue un nuevo')
-        limpiarInput()
-        return null
-    } else {
-        return nom
-    }
-}
-
-//Normalizar cadena
-const normalizarCadena = cadena => {
-    return cadena
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .toLowerCase()
+// Elimina acentos
+function eliminarAcentos(cadena) {
+    return cadena.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 }
 
 //Limpia input
@@ -80,7 +64,7 @@ const desplegarLista = () => {
 
 //Sortea amigo
 const sortearAmigo = () => {
-    //Comprueba arrglo no vacio
+    //Comprueba arreglo no vacio
     if (amigosArr.length === 0) {
         alert(
             'Lista de amigos vacía. Agregue al menos 1 nombre... aunque ya conocerás el resultado 😒.'
@@ -91,29 +75,46 @@ const sortearAmigo = () => {
     let amigoSecreto = amigosArr[Math.floor(Math.random() * amigosArr.length)]
 
     let resultado = document.getElementById('resultado')
+
     listaAmigos.innerHTML = ''
 
-    resultado.innerHTML = `Amigo Secreto: ${amigoSecreto}`
+    resultado.innerHTML = resultado !== '' ? `Amigo Secreto: ${amigoSecreto}` : ''
     amigosArr = []
 
     document.getElementById('btn-sortear').style.display = 'none'
+
     document.getElementById('btn-reiniciar').style.display = 'flex'
-    document.getElementById('button-add').style.display = 'none'
-    document.getElementById('amigo').style.borderRadius ='25px 25px' 
+
+    //Deshabilitar campo input y boton añadir
+
+    let Addbtn = document.getElementById('button-add')
+    Addbtn.disabled = true
+
+    let input = document.getElementById('amigo')
+    input.disabled = true
+
     return
 }
 
 //Reiniciar juego
 const reiniciarJuego = () => {
     document.getElementById('btn-reiniciar').style.display = 'none'
+
     document.getElementById('btn-sortear').style.display = 'flex'
+
     document.getElementById('resultado').innerHTML = ''
-    document.getElementById('button-add').style.display = 'flex'
-    document.getElementById('amigo').style.borderRadius ='25px 0 0 25px' 
-
-
 
     document
         .getElementById('btn-reiniciar')
         .addEventListener('click', reiniciarJuego)
+
+    // Habilitar campo input y boton añadir
+    let input = document.getElementById('amigo')
+    input.disabled = false
+
+    let Addbtn = document.getElementById('button-add')
+    Addbtn.disabled = false
+
+    limpiarInput()
+    return
 }
