@@ -33,4 +33,12 @@
 
 <https://github.com/fersho101/challenge-amigo-secreto.git>
 
+## ⛷️Deploys
+
+- Netlify
+
 <https://67a2b0f59cf90d7d03b17c64--scintillating-boba-b7fb11.netlify.app/>
+
+- GitHub pages
+
+<https://fersho101.github.io/challenge-amigo-secreto/>
