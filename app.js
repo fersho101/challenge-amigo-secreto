@@ -11,7 +11,7 @@ const agregarAmigo = () => {
     let resultado = document.getElementById('resultado')
     resultado.innerHTML = ''
 
-    if(nuevoAmigo) {
+    if (nuevoAmigo) {
         amigosArr.push(nuevoAmigo)
         desplegarLista()
         limpiarInput()
@@ -22,7 +22,7 @@ const agregarAmigo = () => {
 // Valida nombres validos
 const validarNombre = amigo => {
     const regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+(?: [a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/
-    amigo = amigo.trim() // Elimina espacios vacios al princio y al final
+    amigo = amigo.trim() // Elimina espacios vacios al principio y al final
 
     amigo = amigo.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '') // elimina caracteres invalidos.
     amigo = amigo.replace(/\s+/g, ' ') // Elimina espacios mayores a uno entre palabras.
@@ -33,12 +33,18 @@ const validarNombre = amigo => {
             'El nombre debe tener al menos 2 caracteres válidos. Solo se permiten letras, con o sin acento. Caracteres inválidos se eliminarán del nombre.'
         )
         limpiarInput()
-        
     } else {
         if (regex.test(amigo)) {
+            let arrTest = amigosArr.map(e => e.toLowerCase())
+            let amigoTest = amigo.toLowerCase()
+            // console.log(arrTest, amigoTest)
+            if (arrTest.includes(amigoTest)) {
+                alert('Nombre de amigo duplicado, agregue uno nuevo o pruebe su suerte!!')
+                limpiarInput()
+                return
+            }
             return amigo
         }
-        return
     }
 }
 
@@ -72,14 +78,19 @@ const sortearAmigo = () => {
         return
     }
 
+    // Seleccionando amigo secreto de manera aleatoria
+
     let amigoSecreto = amigosArr[Math.floor(Math.random() * amigosArr.length)]
 
     let resultado = document.getElementById('resultado')
 
     listaAmigos.innerHTML = ''
 
-    resultado.innerHTML = resultado !== '' ? `Amigo Secreto: ${amigoSecreto}` : ''
+    resultado.innerHTML = `Amigo Secreto: ${amigoSecreto}`
+        // resultado !== '' ? `Amigo Secreto: ${amigoSecreto}` : ''
     amigosArr = []
+
+    // Habilitar y deshabilitar botones de reiniciar y sortear
 
     document.getElementById('btn-sortear').style.display = 'none'
 
@@ -104,10 +115,6 @@ const reiniciarJuego = () => {
 
     document.getElementById('resultado').innerHTML = ''
 
-    document
-        .getElementById('btn-reiniciar')
-        .addEventListener('click', reiniciarJuego)
-
     // Habilitar campo input y boton añadir
     let input = document.getElementById('amigo')
     input.disabled = false
@@ -118,3 +125,7 @@ const reiniciarJuego = () => {
     limpiarInput()
     return
 }
+
+document
+    .getElementById('btn-reiniciar')
+    .addEventListener('click', reiniciarJuego)

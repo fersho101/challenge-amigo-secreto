@@ -21,13 +21,11 @@
 
 - limpiarInput() , limpia entrada del input.
 
-- validarNombre([nom]), solo permite caracteres válidos, si es posible, elimina caracteres inválidos, un solo espacio entre palabras, no permite cadena vacia.
+- validarNombre([nom]), solo permite caracteres válidos. Si es posible, elimina caracteres inválidos, un solo espacio entre palabras, no permite cadena vacia. No permite nombre duplicados exactos entre letras mayusculas y/o minusculas.
+
+- eliminarAcento(str), elimina acentos en las palabras.
 
 - desplegarLista(), despliega y muestra la lista de amigos añadidos.
-
-- eliminaNombresDuplicados([nom, array]), no permite ingresar nombres duplicados o ya incluidos.
-
-- normalizarCadena([str]), normaliza una cadena pasada por parámetro.
 
 - sortearAmigo(), selecciona un nombre de amigo de manera aleatoria o el destino los unió 😍.
 
